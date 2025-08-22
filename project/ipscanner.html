@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../projects/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link id='favicon' rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-png">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+    <title>Projects | Portfolio Prit Gujarati</title>
+</head>
+
+<body oncontextmenu="return false">
+    <style>
+        .swiper {
+            width: min(1000px, 90%);
+            height: 500px;
+            /* adjust depending on your image height */
+            padding-block: 40px;
+        }
+
+        .swiper-slide {
+            width: auto;
+            /* let it auto-size */
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .swiper-slide img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            /* show full image without cropping */
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .25);
+            background: #fff;
+            /* optional: adds contrast for transparent PNGs */
+            padding: 5px;
+            /* optional: small padding around image */
+        }
+
+        /* Project Info Section */
+        .project-info {
+            background: #fff;
+            padding: 3rem;
+            margin: 3rem auto;
+            border-radius: .7rem;
+            box-shadow: 0 .7rem 1rem rgba(0, 0, 0, .2);
+            font-size: 1.5rem;
+            color: #0E2431;
+            line-height: 1.7;
+        }
+
+        .project-info .sub-heading {
+            font-size: 2.3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: rgb(32, 32, 32);
+        }
+
+        .project-info .highlight {
+            color: rgb(115, 3, 167);
+            font-weight: 600;
+        }
+
+        .project-info .info-block {
+            margin: 2rem 0;
+        }
+
+        .project-info h3 {
+            font-size: 1.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #011aff;
+        }
+
+        .project-info ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .project-info ul li {
+            margin: .8rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .project-info ul li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: #ffd900;
+            font-weight: bold;
+        }
+
+        .project-info code {
+            background: rgba(1, 26, 255, 0.1);
+            padding: .2rem .6rem;
+            border-radius: .4rem;
+            font-size: 1.3rem;
+            color: #011aff;
+        }
+
+        .mt-50{
+            margin-top:100px ;
+        }
+    </style>
+    <!-- navbar starts -->
+    <header>
+        <a href="/" class="logo"><i class="fab fa-node-js"></i> Prit</a>
+
+        <div id="menu" class="fas fa-bars"></div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="/#home">Home</a></li>
+                <li><a href="/#about">About</a></li>
+                <li><a href="/#skills">Skills</a></li>
+                <li><a href="/#education">Education</a></li>
+                <li><a class="active" href="/#work">Work</a></li>
+                <li><a href="/#experience">Experience</a></li>
+                <li><a href="/#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- navbar ends -->
+
+    <!-- work project section starts -->
+    <section class="work" id="work">
+
+        <h2 class="heading"><i class="fas fa-laptop-code"></i> Projects <span>information</span></h2>
+
+        <!-- Swiper container -->
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/ip-scanner/disclaimer.png" alt="Home page">
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/ip-scanner/dash.png" alt="Home page">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/ip-scanner/dash-2.png" alt="Captain Dashboard">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/ip-scanner/tcp.png" alt="Captain Map">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/ip-scanner/tcp.png" alt="Captain Rides">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/ip-scanner/host.png" alt="Home page">
+                </div>
+
+            </div>
+        </div>
+        <!-- ip tool -->
+    <!-- ip tool -->
+     <div class="mt-50"></div>
+        <h2 class="heading"><i class="fas fa-laptop-code"></i>  Network Security &<span>Port Scanning Tool</span></h2>
+
+    <div class="project-info">
+      <!-- <h2 class="sub-heading"><i class="fas fa-shield-alt"></i> </h2> -->
+      <p>
+        This project is a <span class="highlight">full-stack cybersecurity application</span> 
+        built with <b>Python (FastAPI)</b> on the backend and a custom <b>React.js frontend</b>. 
+        It provides real-time <b>IP scanning, OS detection, geolocation, and TCP/UDP port analysis</b>. 
+        Designed for <em>security researchers, system administrators, and penetration testers</em>.
+      </p>
+
+      <div class="info-block">
+        <h3> Key Features</h3>
+        <ul>
+          <li>IP Scanner – Detects private/public IP, subnet, hostname, MAC address.</li>
+          <li>OS fingerprinting & firewall detection using <code>nmap -O</code>.</li>
+          <li>TCP & UDP port scanning with service and version detection.</li>
+          <li>Subnet (/24) scanning to detect all active devices.</li>
+          <li>Public IP geolocation (Country, ISP, ASN, City, Lat/Lon).</li>
+        </ul>
+      </div>
+
+      <div class="info-block">
+        <h3> REST API Endpoints</h3>
+        <ul>
+          <li><code>/scan?ip=</code> → Scan single IP</li>
+          <li><code>/tcp?ip=</code> → TCP Port Scan</li>
+          <li><code>/udp?ip=</code> → UDP Port Scan</li>
+          <li><code>/active-devices?ip=</code> → Active device scan</li>
+        </ul>
+      </div>
+
+      <div class="info-block">
+        <h3> Tech Stack</h3>
+        <ul>
+          <li><b>Backend:</b> Python, FastAPI, Nmap, Psutil, Socket, Getmac</li>
+          <li><b>Frontend:</b> React.js, HTML5, CSS3</li>
+          <li><b>Other Tools:</b> IP-API for geolocation, Networking APIs</li>
+        </ul>
+      </div>
+
+      <div class="info-block">
+        <h3> Use Cases</h3>
+        <p>
+          → For <b>Admins:</b> Monitor local networks and open ports.<br>
+          → For <b>Pentesters:</b> Fingerprint OS & firewall rules.<br>
+          → For <b>Students:</b> Learn real-world networking & security fundamentals.
+        </p>
+      </div>
+
+      <p class="author"><i class="fas fa-code"></i> Prit Gujarati</p>
+    </div>
+
+        <div class="backbtn">
+            <a href="/#work" class="btn">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Home</span>
+            </a>
+        </div>
+
+    </section>
+    <!-- work project section ends -->
+
+    <!-- scroll top btn -->
+    <a href="#work" class="fas fa-angle-up" id="scroll-top"></a>
+    <!-- scroll back to top -->
+
+
+    <!-- ==== ALL MAJOR JAVASCRIPT CDNS STARTS ==== -->
+    <!-- jquery cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- vanilla tilt.js links -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"
+        integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- scroll reveal anim -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- isotope filter plugin cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"
+        integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- ==== ALL MAJOR JAVASCRIPT CDNS ENDS ==== -->
+
+    <script>
+        const swiper = new Swiper('.swiper', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: false,   // don’t pause when mouse over
+                stopOnLastSlide: false      // keep looping
+            },
+            coverflowEffect: {
+                depth: 100,
+                modifier: 1,
+                rotate: 50,
+                scale: 1,
+                slideShadows: true,
+                stretch: 0
+            }
+        });
+
+        // force autoplay to start
+        swiper.autoplay.start();
+    </script>
+
+
+</body>
+
+</html>

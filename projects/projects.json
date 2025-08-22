@@ -1,0 +1,18 @@
+[
+
+  {
+    "name": "Ride Rush",
+    "desc": "Ride Rush is a cab booking management system built with Node.js, React.js, MongoDB, and Socket.IO, featuring real-time GPS tracking and secure Stripe payments.",
+    "image": "/riderush/home",
+    "category": "mern",
+    "links": "riderush.html"
+  },
+  {
+    "name": "IP Scaaner",
+    "desc": "IP Scanner is a Python and React-based network analysis tool with TCP/UDP port scanning, OS detection, firewall status, and connected device discovery using advanced scanning techniques.",
+    "image": "/ip-scanner/dash",
+    "category": "python",
+    "links": "ipscanner.html"
+  }
+  
+]

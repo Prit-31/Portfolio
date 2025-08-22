@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../projects/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link id='favicon' rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-png">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+    <title>Projects | Portfolio Prit Gujarati</title>
+</head>
+
+<body oncontextmenu="return false">
+    <style>
+        .swiper {
+            width: min(1000px, 90%);
+            height: 500px;
+            /* adjust depending on your image height */
+            padding-block: 40px;
+        }
+
+        .swiper-slide {
+            width: auto;
+            /* let it auto-size */
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .swiper-slide img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            /* show full image without cropping */
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .25);
+            background: #fff;
+            /* optional: adds contrast for transparent PNGs */
+            padding: 5px;
+            /* optional: small padding around image */
+        }
+
+        .pdf-container {
+            width: min(2000px, 90%);
+            height: 600px;
+            margin: 20px auto;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .2);
+        }
+
+        .pdf-container iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        .mt-50 {
+            margin-top: 100px;
+        }
+
+        .project-ride-rush {
+            max-width: 1150px;
+            background: #fff;
+            color: #0E2431;
+            padding: 40px 30px;
+            margin: 4rem auto;
+            border-radius: 15px;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 0.03rem;
+            line-height: 1.6;
+
+            transition: transform 0.3s ease;
+        }
+
+        .project-title {
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: #0E2431;
+
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .project-overview {
+            font-size: 1.8rem;
+            margin-bottom: 2.5rem;
+            font-weight: 500;
+
+        }
+
+        .project-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .project-section h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #011aff;
+            padding-left: 1rem;
+
+        }
+
+        .project-section ul {
+            list-style: none;
+            padding: 0;
+            font-size: 1.6rem;
+        }
+
+        .project-section ul li {
+            position: relative;
+            padding-left: 2.5rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.3;
+            font-weight: 600;
+        }
+
+        .project-section ul li::before {
+            content: '✔';
+            position: absolute;
+            left: 0;
+            color: #0E2431;
+            font-weight: 900;
+            font-size: 1.4rem;
+            top: 0;
+        }
+
+        .project-section p {
+            font-size: 1.4rem;
+
+        }
+
+        .project-footer {
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-align: right;
+            opacity: 0.85;
+            color: #0E2431;
+            letter-spacing: 0.05rem;
+            margin-top: 4rem;
+
+        }
+    </style>
+    <!-- navbar starts -->
+    <header>
+        <a href="/" class="logo"><i class="fab fa-node-js"></i> Prit</a>
+
+        <div id="menu" class="fas fa-bars"></div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="/#home">Home</a></li>
+                <li><a href="/#about">About</a></li>
+                <li><a href="/#skills">Skills</a></li>
+                <li><a href="/#education">Education</a></li>
+                <li><a class="active" href="/#work">Work</a></li>
+                <li><a href="/#experience">Experience</a></li>
+                <li><a href="/#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- navbar ends -->
+
+    <!-- work project section starts -->
+    <section class="work" id="work">
+
+        <h2 class="heading"><i class="fas fa-laptop-code"></i> Projects <span>information</span></h2>
+
+        <!-- Swiper container -->
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/riderush/login.png" alt="Home page">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/riderush/signup.png" alt="Captain Dashboard">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/riderush/home.png" alt="Captain Map">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/riderush/about.png" alt="Captain Rides">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/riderush/contact.png" alt="Home page">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/riderush/cap-dash.png" alt="Home page">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/riderush/cap-rides.png" alt="Captain Dashboard">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/riderush/cap-rides.png" alt="Captain Map">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/riderush/user-rides (1).png" alt="Captain Rides">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/riderush/password.png" alt="Home page">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/riderush/address.png" alt="Home page">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/riderush/profile.png" alt="Captain Dashboard">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/riderush/notification.png" alt="Captain Map">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/riderush/payment.png" alt="Captain Rides">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/riderush/admin-dash.png" alt="Home page">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/riderush/admin-cap-noti.png" alt="Home page">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/riderush/admin-cap.png" alt="Captain Dashboard">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/riderush/admin-user.png" alt="Captain Map">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/riderush/admin-ride.png" alt="Captain Rides">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/riderush/admin-liveride.png" alt="Home page">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/riderush/admin-search.png" alt="Home page">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/riderush/admin-subadmin.png" alt="Captain Dashboard">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/riderush/admin-pass.png" alt="Captain Map">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/riderush/admin-noti.png" alt="Captain Rides">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../assets/images/projects/riderush/admin-res.png" alt="Home page">
+                </div>
+            </div>
+        </div>
+        <div class="pdf-container">
+            <iframe src="../assets/images/projects/riderush/Page.pdf" frameborder="0"></iframe>
+        </div>
+        <div class="mt-50">
+
+        </div>
+        <h2 class="heading"><i class="fas fa-laptop-code"></i> Ride Rush –<span>Cab Booking Management System</span>
+        </h2>
+
+        <section class="project-ride-rush">
+
+            <p class="project-overview">
+                Ride Rush is a cutting-edge, web-based platform that simplifies and secures cab bookings for riders,
+                drivers, and admins. Using modern technologies like React.js, Node.js, MongoDB, Socket.IO, and Google
+                Maps API, it delivers real-time ride tracking, instant notifications, fare management, and comprehensive
+                admin controls.
+            </p>
+
+            <div class="project-section">
+                <h3> Key Technologies</h3>
+                <ul>
+                    <li><b>React.js:</b> Fast, responsive UI for real-time updates and ride tracking.</li>
+                    <li><b>Node.js + Express:</b> Scalable backend with REST API and Socket.IO real-time communication.
+                    </li>
+                    <li><b>MongoDB:</b> Flexible NoSQL database for users, rides, drivers, and transactions.</li>
+                    <li><b>Socket.IO:</b> Real-time ride notifications & live driver location updates.</li>
+                    <li><b>Google Maps API:</b> Interactive and accurate GPS tracking.</li>
+                    <li><b>Payment Gateways:</b> Secure, seamless digital payments via Razorpay/Stripe.</li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h3> Core Features</h3>
+                <ul>
+                    <li>Passenger registration, secure login, and profile management.</li>
+                    <li>Real-time ride booking, driver assignment, and GPS tracking with notifications.</li>
+                    <li>Driver verification, ride request handling, earnings dashboard, and navigation support.</li>
+                    <li>Admin panel for user/driver management, ride monitoring, fare & commission control.</li>
+                    <li>Emergency SOS feature for passenger safety and secure digital transactions.</li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h3> Architecture & Flow</h3>
+                <p>
+                    React frontend communicates with Node.js REST API and uses WebSocket (Socket.IO) for real-time
+                    features.
+                    MongoDB stores dynamic ride, user, and driver data. Google Maps powers geo-location tracking.
+                    JWT secures authentication, ensuring role-based access for passengers, drivers, and admins.
+                </p>
+            </div>
+
+            <div class="project-section">
+                <h3> Testing & Future Scope</h3>
+                <ul>
+                    <li>Comprehensive test cases validate login, registration, booking, payment, and notification flows.
+                    </li>
+                    <li>Future plans include ride-sharing, AI fare estimation, multi-payment options, and live customer
+                        support integration.</li>
+                </ul>
+            </div>
+
+            <p class="author"><i class="fas fa-code"></i> Prit Gujarati</p>
+
+        </section>
+
+        <div class="backbtn">
+            <a href="/#work" class="btn">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Home</span>
+            </a>
+        </div>
+
+    </section>
+    <!-- work project section ends -->
+
+    <!-- scroll top btn -->
+    <a href="#work" class="fas fa-angle-up" id="scroll-top"></a>
+    <!-- scroll back to top -->
+
+
+    <!-- ==== ALL MAJOR JAVASCRIPT CDNS STARTS ==== -->
+    <!-- jquery cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- vanilla tilt.js links -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"
+        integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- scroll reveal anim -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- isotope filter plugin cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"
+        integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- ==== ALL MAJOR JAVASCRIPT CDNS ENDS ==== -->
+
+    <script>
+        const swiper = new Swiper('.swiper', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: false,   // don’t pause when mouse over
+                stopOnLastSlide: false      // keep looping
+            },
+            coverflowEffect: {
+                depth: 100,
+                modifier: 1,
+                rotate: 50,
+                scale: 1,
+                slideShadows: true,
+                stretch: 0
+            }
+        });
+
+        // force autoplay to start
+        swiper.autoplay.start();
+    </script>
+
+
+</body>
+
+</html>
