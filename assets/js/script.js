@@ -37,34 +37,18 @@ $(document).ready(function () {
         }, 500, 'linear')
     });
 
-    // <!-- emailjs to mail contact form data -->
-    $("#contact-form").submit(function (event) {
-        emailjs.init("user_TTDmetQLYgWCLzHTDgqxm");
-
-        emailjs.sendForm('contact_service', 'template_contact', '#contact-form')
-            .then(function (response) {
-                console.log('SUCCESS!', response.status, response.text);
-                document.getElementById("contact-form").reset();
-                alert("Form Submitted Successfully");
-            }, function (error) {
-                console.log('FAILED...', error);
-                alert("Form Submission Failed! Try Again");
-            });
-        event.preventDefault();
-    });
-    // <!-- emailjs to mail contact form data -->
 
 });
 
 document.addEventListener('visibilitychange',
     function () {
         if (document.visibilityState === "visible") {
-            document.title = "Portfolio | Jigar Sable";
+            document.title = "Portfolio | Prit Gujarati";
             $("#favicon").attr("href", "assets/images/favicon.png");
         }
         else {
             document.title = "Come Back To Portfolio";
-            $("#favicon").attr("href", "assets/images/favhand.png");
+            $("#favicon").attr("href", "assets/images/favicon.png");
         }
     });
 
@@ -85,7 +69,7 @@ async function fetchData(type = "skills") {
     type === "skills" ?
         response = await fetch("skills.json")
         :
-        response = await fetch("./projects/projects.json")
+        response = await fetch("./projects.json")
     const data = await response.json();
     return data;
 }
@@ -119,7 +103,7 @@ function showProjects(projects) {
         <div class="desc">
           <p>${project.desc}</p>
           <div class="btns">
-           <a href="/project/${project.links}"class="btn" ><i class="fas fa-eye"></i> View</a>
+           <a href="./${project.links}"class="btn" ><i class="fas fa-eye"></i> View</a>
           </div>
         </div>
       </div>
@@ -177,17 +161,6 @@ document.onkeydown = function (e) {
     }
 }
 
-// Start of Tawk.to Live Chat
-var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-(function () {
-    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-    s1.async = true;
-    s1.src = 'https://embed.tawk.to/60df10bf7f4b000ac03ab6a8/1f9jlirg6';
-    s1.charset = 'UTF-8';
-    s1.setAttribute('crossorigin', '*');
-    s0.parentNode.insertBefore(s1, s0);
-})();
-// End of Tawk.to Live Chat
 
 
 /* ===== SCROLL REVEAL ANIMATION ===== */
@@ -236,3 +209,109 @@ srtop.reveal('.experience .timeline .container', { interval: 400 });
 /* SCROLL CONTACT */
 srtop.reveal('.contact .container', { delay: 400 });
 srtop.reveal('.contact .container .form-group', { delay: 400 });
+
+
+function sanitizeInput(str) {
+    // Remove all characters except letters, digits, spaces, commas, dots, @ and hyphens
+    return str.replace(/[^a-zA-Z0-9 @.,-]/g, '').trim();
+}
+
+
+function showToast(message, type = "info") {
+    const toast = document.getElementById("toast");
+    toast.style.background = type === "success" ? "#4CAF50" : type === "error" ? "#f44336" : "#323232";
+    toast.textContent = message;
+    toast.style.display = "block";
+    setTimeout(() => {
+        toast.style.display = "none";
+    }, 3000);
+}
+
+document.getElementById("contact-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const data = {
+        name: sanitizeInput(form.name.value),
+        email: sanitizeInput(form.email.value),
+        phone: sanitizeInput(form.phone.value),
+        message: sanitizeInput(form.message.value)
+    };
+    form.reset();
+
+
+    document.getElementById("overlay").style.display = "block";
+    form.classList.add('blur-background');
+
+    fetch(`${process.env.REACT_APP_API_URL}/send-email`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    })
+        .then(response => response.json())
+        .then(result => {
+            document.getElementById("overlay").style.display = "none";
+            form.classList.remove('blur-background');
+            if (result.message) {
+                showToast("Message sent successfully!", "success");
+                form.reset();
+            } else {
+                showToast("Failed to send Message", "error");
+            }
+        })
+        .catch(error => {
+            document.getElementById("overlay").style.display = "none";
+            form.classList.remove('blur-background');
+            showToast("Failed to send Message", "error");
+        });
+});
+
+
+// 🔒 Disable Right-Click
+document.addEventListener("contextmenu", function (e) {
+    e.preventDefault();
+});
+
+// 🔒 Disable DevTools Shortcut Keys
+document.addEventListener("keydown", function (e) {
+    if (
+        e.key === "F12" ||                              // F12
+        (e.ctrlKey && e.shiftKey && e.key === "I") ||
+        (e.ctrlKey && e.shiftKey && e.key === "i") ||   // Ctrl+Shift+I
+        (e.ctrlKey && e.shiftKey && e.key === "J") ||
+        (e.ctrlKey && e.shiftKey && e.key === "j") ||   // Ctrl+Shift+J
+        (e.ctrlKey && e.shiftKey && e.key === "C") ||
+        (e.ctrlKey && e.shiftKey && e.key === "c") ||   // Ctrl+Shift+C
+        (e.ctrlKey && e.key === "u") ||
+        (e.ctrlKey && e.key === "U") ||
+        (e.metaKey && e.altKey && e.key.toUpperCase() === "I") ||
+        (e.metaKey && e.altKey && e.key.toUpperCase() === "i") ||// macOS DevTools
+        (e.metaKey && e.key.toUpperCase() === "U") ||
+        (e.metaKey && e.key.toUpperCase() === "u")             // Ctrl+U
+    ) {
+        e.preventDefault();
+    }
+});
+
+// 🔍 Detect DevTools by dimensions
+function detectDevTools() {
+    const threshold = 160;
+    if (
+        window.outerWidth - window.innerWidth > threshold ||
+        window.outerHeight - window.innerHeight > threshold
+    ) {
+        document.body.innerHTML = "<h1 style='text-align:center;margin-top:20%;color:red;'>⚠️ DevTools is blocked!</h1>";
+    }
+}
+
+setInterval(detectDevTools, 1000);
+
+// 🔇 Disable console functions
+(function () {
+    const noop = function () { };
+    const blocked = ["log", "warn", "error", "info", "debug", "trace", "table", "clear"];
+    for (let fn of blocked) {
+        console[fn] = noop;
+    }
+    Object.freeze(console); // Optional: prevent tampering
+})();
