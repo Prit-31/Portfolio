@@ -6,7 +6,12 @@ from email.mime.multipart import MIMEMultipart
 import os
 from dotenv import load_dotenv
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all domains - be careful in production to restrict origins
+CORS(app, resources={
+    r"/send-email": {
+        "origins": [os.getenv("FRONTEND_URL")],  
+        "methods": ["POST"]
+    }
+})
 SENDER_EMAIL = os.getenv("SENDER_EMAIL")
 SENDER_PASSWORD = os.getenv("SENDER_PASSWORD")
 RECEIVER_EMAIL = os.getenv("RECEIVER_EMAIL")
