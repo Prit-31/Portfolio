@@ -143,23 +143,23 @@ VanillaTilt.init(document.querySelectorAll(".tilt"), {
     max: 15,
 });
 
-// document.onkeydown = function (e) {
-//     if (e.keyCode == 123) {
-//         return false;
-//     }
-//     if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
-//         return false;
-//     }
-//     if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
-//         return false;
-//     }
-//     if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
-//         return false;
-//     }
-//     if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
-//         return false;
-//     }
-// }
+document.onkeydown = function (e) {
+    if (e.keyCode == 123) {
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+        return false;
+    }
+    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+        return false;
+    }
+}
 
 
 
@@ -224,20 +224,50 @@ function showToast(message, type = "info") {
         toast.style.display = "none";
     }, 3000);
 }
+// phone 
+const phoneInput = document.getElementById("phone");
+
+phoneInput.addEventListener("input", function () {
+    // remove everything except digits
+    this.value = this.value.replace(/[^0-9]/g, "");
+
+    // limit to 10 digits
+    if (this.value.length > 10) {
+        this.value = this.value.slice(0, 10);
+    }
+});
 
 document.getElementById("contact-form").addEventListener("submit", function (event) {
     event.preventDefault();
 
     const form = event.target;
+    const name = form.name.value.trim();
+    const phone = form.phone.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+
+    // ✅ Phone check
+    if (phone && phone.length !== 10) {
+        showToast("📞 Phone must be exactly 10 digits", "error");
+        return;
+    }
+
+    // ✅ Email check
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        showToast("✉️ Please enter a valid email address", "error");
+        return;
+    }
+
+    // ✅ Prepare data
     const data = {
-        name: sanitizeInput(form.name.value),
-        email: sanitizeInput(form.email.value),
-        phone: sanitizeInput(form.phone.value),
-        message: sanitizeInput(form.message.value)
+        name: sanitizeInput(name),
+        email: sanitizeInput(email),
+        phone: sanitizeInput(phone),
+        message: sanitizeInput(message)
     };
-    form.reset();
 
-
+    // ✅ Show overlay while sending
     document.getElementById("overlay").style.display = "block";
     form.classList.add('blur-background');
 
@@ -251,16 +281,16 @@ document.getElementById("contact-form").addEventListener("submit", function (eve
             document.getElementById("overlay").style.display = "none";
             form.classList.remove('blur-background');
             if (result.message) {
-                showToast("Message sent successfully!", "success");
+                showToast("✅ Message sent successfully!", "success");
                 form.reset();
             } else {
-                showToast("Failed to send Message", "error");
+                showToast("❌ Failed to send Message", "error");
             }
         })
         .catch(error => {
             document.getElementById("overlay").style.display = "none";
             form.classList.remove('blur-background');
-            showToast("Failed to send Message", "error");
+            showToast("⚠️ Failed to send Message", "error");
         });
 });
 
