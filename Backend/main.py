@@ -6,10 +6,13 @@ from email.mime.multipart import MIMEMultipart
 import os
 from dotenv import load_dotenv
 app = Flask(__name__)
+FRONTEND_URL = os.getenv("FRONTEND_URL")
+
 CORS(app, resources={
     r"/send-email": {
-        "origins": [os.getenv("FRONTEND_URL")],  
-        "methods": ["POST"]
+        "origins": [FRONTEND_URL],  
+        "methods": ["POST"],
+        "allow_headers": ["Content-Type", "Authorization"]
     }
 })
 SENDER_EMAIL = os.getenv("SENDER_EMAIL")
