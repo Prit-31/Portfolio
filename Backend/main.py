@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 app = Flask(__name__)
 CORS(app, resources={
     r"/send-email": {
-        "origins": ["https://pritgujarati.netlify.app/"],  
+        "origins": ["https://pritgujarati.netlify.app"],  
         "methods": ["POST"],
     }
 })
