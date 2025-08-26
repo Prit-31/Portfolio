@@ -320,15 +320,35 @@ document.addEventListener("keydown", function (e) {
 });
 
 // 🔍 Detect DevTools by dimensions
-function detectDevTools() {
-    const threshold = 160;
-    if (
-        window.outerWidth - window.innerWidth > threshold ||
-        window.outerHeight - window.innerHeight > threshold
-    ) {
-        document.body.innerHTML = "<h1 style='text-align:center;margin-top:20%;color:red;'>⚠️ DevTools is blocked!</h1>";
+(function () {
+    function detectDevTools() {
+        const threshold = 160;
+
+        // Method 1: Dimension check
+        if (
+            window.outerWidth - window.innerWidth > threshold ||
+            window.outerHeight - window.innerHeight > threshold
+        ) {
+            blockSite();
+        }
+
+        // Method 2: Debugger trick (forces DevTools detection)
+        const start = performance.now();
+        debugger;
+        if (performance.now() - start > 100) {
+            blockSite();
+        }
     }
-}
+
+    function blockSite() {
+        document.body.innerHTML = "<h1 style='text-align:center;margin-top:20%;color:red;'>⚠️ DevTools is blocked!</h1>";
+        clearInterval(devToolsChecker);
+    }
+
+    // Run every 500ms
+    const devToolsChecker = setInterval(detectDevTools, 500);
+})();
+
 
 setInterval(detectDevTools, 1000);
 
