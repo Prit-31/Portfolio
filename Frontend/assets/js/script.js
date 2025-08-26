@@ -332,25 +332,29 @@ document.addEventListener("keydown", function (e) {
             blockSite();
         }
 
-        // Method 2: Debugger trick (forces DevTools detection)
-        const start = performance.now();
-        debugger;
-        if (performance.now() - start > 100) {
+        // Method 2: Debugger detection trick
+        const start = new Date();
+        (function () {
+            console.log('');
+        })();
+        if (new Date() - start > 100) {
             blockSite();
         }
     }
 
     function blockSite() {
-        document.body.innerHTML = "<h1 style='text-align:center;margin-top:20%;color:red;'>⚠️ DevTools is blocked!</h1>";
+        // Replace entire page instantly
+        document.documentElement.innerHTML =
+            "<body><h1 style='text-align:center;margin-top:20%;color:red;'>⚠️ DevTools is blocked!</h1></body>";
+
+        // Stop any further execution
         clearInterval(devToolsChecker);
+        throw new Error("DevTools Blocked");
     }
 
     // Run every 500ms
     const devToolsChecker = setInterval(detectDevTools, 500);
 })();
-
-
-setInterval(detectDevTools, 1000);
 
 // 🔇 Disable console functions
 (function () {
